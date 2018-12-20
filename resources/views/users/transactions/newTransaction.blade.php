@@ -6,6 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="mdui-card-content mdui-typo">
+                        <h1>???????/</h1>
                         <form method="post" action="{{route('newTrans')}}">
                             {{ csrf_field() }}
                             <div class="mdui-textfield mdui-textfield-floating-label">

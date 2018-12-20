@@ -50,7 +50,11 @@ class TransactionController extends Controller
 
 
     public function newTransaction(Request $request) {
-        DB::table('transactions')->insert(['seller_id'=> User::where('name','=', $request->seller_name)->get()->first()])
+        DB::table('transactions')->insert(['seller_id'=> User::where('name','=', $request->seller_name)->get()->first()->id,'seller_name'=> $request->seller_name
+            ,'buyer_id'=> User::where('name','=', $request->buyer_name)->get()->first()->id,'buyer_name'=> $request->buyer_name,
+            'description'=>$request->description,'money'=>$request->money]);
+
+        return view('users.transactions.index');
     }
 
     public function enterNewTransaction() {
