@@ -12,6 +12,7 @@
                             <th>买方</th>
                             <th>卖方</th>
                             <th>描述</th>
+                            <th>金额</th>
                             <th>创建时间</th>
                             <th>状态</th>
                         </tr>
@@ -23,9 +24,10 @@
                                 <td>{{$transaction->buyer_name}}</td>
                                 <td>{{$transaction->seller_name}}</td>
                                 <td>{{$transaction->description}}</td>
+                                <td>{{$transaction->money}}</td>
                                 <td>{{$transaction->created_at}}</td>
                                 <td>
-                                    <form action="/users/transactions/index" method="post">
+                                    <form method="post" action="{{route('changeTransactionStatus')}}">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="transactionId"
                                                value={{$transaction->id}}>
@@ -54,6 +56,7 @@
                             <th>买方</th>
                             <th>卖方</th>
                             <th>描述</th>
+                            <th>金额</th>
                             <th>创建时间</th>
                             <th>状态</th>
                         </tr>
@@ -65,9 +68,10 @@
                                 <td>{{$transaction->buyer_name}}</td>
                                 <td>{{$transaction->seller_name}}</td>
                                 <td>{{$transaction->description}}</td>
+                                <td>{{$transaction->money}}</td>
                                 <td>{{$transaction->created_at}}</td>
                                 <td>
-                                    <form action="/users/transactions/index" method="post">
+                                    <form action="{{route('changeTransactionStatus')}}" method="post">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="transactionId"
                                                value={{$transaction->id}}>

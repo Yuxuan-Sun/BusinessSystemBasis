@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="mdui-card-content mdui-typo">
-                        <h1>???????/</h1>
+                        <h1>???????</h1>
                         <form method="post" action="{{route('newTrans')}}">
                             {{ csrf_field() }}
                             <div class="mdui-textfield mdui-textfield-floating-label">
@@ -18,7 +18,7 @@
                             <div class="mdui-textfield mdui-textfield-floating-label ">
                                 <i class="mdui-icon material-icons adjust_mdui_icon">add</i>
                                 <label class="mdui-textfield-label">描述</label>
-                                <textarea class="mdui-textfield-input" id="description" name="description" type="text" required/>
+                                <textarea class="mdui-textfield-input" id="description" name="description" type="text" required></textarea>
                                 <div class="mdui-textfield-error">描述不能为空</div>
                             </div>
                             <div class="mdui-textfield mdui-textfield-floating-label ">
@@ -27,7 +27,7 @@
                                 <input class="mdui-textfield-input" id="money" name="money" type="number" required/>
                                 <div class="mdui-textfield-error">交易金额不能为空</div>
                             </div>
-                            <input type="hidden" name="buyer_id" value={{$user->id}}/>
+                            <input type="hidden" name="buyer_name" value={{$user->name}}>
                             <button data-no-instant type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme mdui-center">提交
                             </button>
                         </form>
