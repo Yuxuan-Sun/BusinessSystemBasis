@@ -17,6 +17,8 @@ class TransactionController extends Controller
         return view('users.transactions.index',compact('transactions'),compact('user'));
     }
 
+
+
     public function changeTransactionStatus(Request $request) {
         $user = Auth::user();
         $currentTransaction = DB::table('transactions')->where('id','=',$request->transactionId)->first();
@@ -44,5 +46,15 @@ class TransactionController extends Controller
 
         return view('users.transactions.index');
 
+    }
+
+
+    public function newTransaction(Request $request) {
+        DB::table('transactions')->insert(['seller_id'=> User::where('name','=', $request->seller_name)->get()->first()])
+    }
+
+    public function enterNewTransaction() {
+        $user = Auth::user();
+        view('users.transactions.newTransaction', compact($user));
     }
 }

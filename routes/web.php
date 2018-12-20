@@ -27,3 +27,6 @@ Route::get('/users/index','UserController@index');
 
 Route::get('/users/transactions/index','TransactionController@index');
 Route::post('/users/transaction/index','TransactionController@changeTransactionStatus');
+Route::post('/users/transaction/index', 'TransactionController@newTransaction')->name('newTrans');
+
+Route::get('/users/transactions/newTransaction','TransactionController@enterNewTransaction');
