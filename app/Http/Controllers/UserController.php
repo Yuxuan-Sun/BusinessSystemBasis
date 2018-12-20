@@ -11,8 +11,7 @@ class UserController extends Controller
 {
     public function index() {
         $user = Auth::user();
-//        return $user;
-        $userInfo = UserInformation::where('user_id', '=',$user->id) -> get();
+        $userInfo = UserInformation::where('user_id', '=',$user->id) -> get() -> first();
 
         return view('users.index',compact('userInfo'));
     }

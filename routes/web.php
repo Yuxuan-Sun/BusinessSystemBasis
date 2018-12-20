@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/users/index','UserController@index');
+
+
+
+Route::get('/users/transactions/index','TransactionController@index');

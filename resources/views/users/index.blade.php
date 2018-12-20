@@ -5,7 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h1>{{$userInfo[0]->description}}</h1>
+                    <h1>{{$userInfo->description}}</h1>
+                    <h1>{{ $userInfo->money }}</h1>
                 </div>
             </div>
         </div>
