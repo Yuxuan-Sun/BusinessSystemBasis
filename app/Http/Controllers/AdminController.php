@@ -11,16 +11,21 @@ class AdminController extends Controller
 {
 
     public function resources() {
-//        $user = Auth::user();
-//        if ($user->id != 666) {
-//            return redirect('users/index');
-//        }
+        $userId = Auth::id();
+        if ($userId != 666) {
+            return redirect('/home');
+        }
 
         $resources = DB::table('resources')->get();
         return view('admin.resources')->with('resources',$resources);
     }
 
     public function changeResourcesStatus(Request $request) {
+        $userId = Auth::id();
+        if ($userId != 666) {
+            return redirect('/home');
+        }
+
         $currentResource = DB::table('resources')->where('id','=',$request->resourceId)->first();
 
         if ($request->resourceId == -1) {
@@ -36,8 +41,37 @@ class AdminController extends Controller
             //更新卖家买家的资产状态
         }
 
-
-
         return redirect('admin/35/resources');
     }
+
+    public function maps() {
+        $userId = Auth::id();
+        if ($userId != 666) {
+            return redirect('/home');
+        }
+
+        $maps = DB::table('maps')->get();
+        return view('admin.maps')->with('maps',$maps);
+    }
+
+    public function changeMapStatus(Request $request) {
+
+        $userId = Auth::id();
+        if ($userId != 666) {
+            return redirect('/home');
+        }
+
+
+        $currentMap = DB::table('maps')->where('id','=',$request->mapId)->first();
+
+
+
+        if ($request->confirm === 'true') {
+            DB::table('maps')->where('id','=',$request->mapId)->update(['owner_name'=> $request->owner_name]);
+            //更新卖家买家的资产状态
+        }
+
+        return redirect('admin/35/maps');
+    }
+
 }

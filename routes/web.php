@@ -32,3 +32,6 @@ Route::post('/users/transactions/newTransaction', 'TransactionController@newTran
 
 Route::get('/admin/35/resources','AdminController@resources');
 Route::post('/admin/35/resources','AdminController@changeResourcesStatus')->name('changeResourcesStatus');
+
+Route::get('/admin/35/maps','AdminController@maps');
+Route::post('/admin/35/maps','AdminController@changeMapStatus')->name('changeMapStatus');
