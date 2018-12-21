@@ -122,6 +122,11 @@
                         地图信息
                     </a>
                 </li>
+                <li class="mdui-menu-item">
+                    <a href="/users/announcement" class="mdui-ripple">
+                        公告记录
+                    </a>
+                </li>
             </ul>
 
             <div></div>

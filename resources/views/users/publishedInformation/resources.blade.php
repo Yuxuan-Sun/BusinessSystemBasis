@@ -13,8 +13,9 @@
                     <div class="card-body">
                         <h3>目前是第{{$resources[0]->year}}财年</h3>
                         <h3>公告：{!!$resources[0]->announcement!!}</h3>
+                        <h3 class="mdui-text-color-theme">价目表</h3>
                         @foreach($resources as $resource )
-                            <h3>{{$resource->type}}售价:{{$resource->price}}亿</h3>
+                            <p>{{$resource->type}}售价:{{$resource->price}}亿</p>
                         @endforeach
                     </div>
                 </div>

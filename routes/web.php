@@ -24,11 +24,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/index','UserController@index');
 Route::get('/users/resources','UserController@resources');
 Route::get('/users/maps','UserController@maps');
+Route::get('/users/announcement','UserController@announcement');
 
 
 
 Route::get('/users/transactions/index','TransactionController@index');
 Route::post('/users/transactions/index','TransactionController@handleTransaction')->name('handleTrans');
+
 //Route::post('/users/transactions/newTransaction', 'TransactionController@handleTransaction')->name('newTrans');
 
 

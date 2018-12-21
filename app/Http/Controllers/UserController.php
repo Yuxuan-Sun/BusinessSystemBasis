@@ -28,4 +28,10 @@ class UserController extends Controller
         $maps = DB::table('maps')->get();
         return view('users.publishedInformation.maps')->with('maps',$maps);
     }
+
+    public function announcement() {
+        $resources = DB::table('resources')->get();
+        return view('users.publishedInformation.announcement')->with('resources',$resources);
+
+    }
 }
