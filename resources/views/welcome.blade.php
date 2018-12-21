@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    欢迎来到GFC商赛
+                    Gamble For Crisis
                 </div>
 
                 <div class="links">
