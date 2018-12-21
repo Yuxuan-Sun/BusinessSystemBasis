@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">选手信息</div>
 
@@ -13,6 +13,7 @@
                             <tr>
                                 <th>名字</th>
                                 <th>描述</th>
+                                <th>资金</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -31,6 +32,20 @@
                                             class="mdui-btn mdui-btn-icon mdui-color-green mdui-ripple">
                                         <i class="mdui-icon material-icons">create</i>
                                     </button>
+                                    </form>
+                                </td>
+                                <td><form method="post" action="{{route('changeUserInfoStatus')}}">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="userInfoId"
+                                               value={{$userInfo->id}}>
+                                        <div class="mdui-textfield mdui-textfield-floating-label" sytle="width: 20%">
+                                            <input name="money" class="mdui-textfield-input" value={!! $userInfo->money !!}>
+                                        </div>
+
+                                        <button type="submit" name="confirm" value="false"
+                                                class="mdui-btn mdui-btn-icon mdui-color-green mdui-ripple">
+                                            <i class="mdui-icon material-icons">create</i>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>

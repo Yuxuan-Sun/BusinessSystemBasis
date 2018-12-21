@@ -41,12 +41,12 @@
                                            value={{$transaction->id}}>
                                     <button type="submit" name="confirm" value="true"
                                             class="mdui-btn mdui-btn-icon mdui-color-green mdui-ripple">
-                                        <i class="mdui-icon material-icons">接受</i>
+                                        <i class="mdui-icon material-icons">check</i>
                                     </button>
                                     &nbsp&nbsp
                                     <button type='submit' name="confirm" value="false"
                                             class="mdui-btn mdui-btn-icon mdui-color-red mdui-ripple">
-                                        <i class="mdui-icon material-icons">取消</i>
+                                        <i class="mdui-icon material-icons">close</i>
                                     </button>
                                 </form>
                             </td>
@@ -172,12 +172,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="form_type"
                                value=1>
-                        <div class="mdui-textfield mdui-textfield-floating-label">
-                            <i class="mdui-icon material-icons adjust_mdui_icon">shopping_basket</i>
-                            <label class="mdui-textfield-label">买方</label>
-                            <input class="mdui-textfield-input" id="buyer_name" name="buyer_name" type="text" required/>
-                            <div class="mdui-textfield-error">买方不能为空</div>
-                        </div>
+
                         <div class="mdui-textfield mdui-textfield-floating-label">
                             <i class="mdui-icon material-icons adjust_mdui_icon">shopping_basket</i>
                             <label class="mdui-textfield-label">卖方</label>
@@ -196,6 +191,7 @@
                             <input class="mdui-textfield-input" id="money" name="money" type="number" required/>
                             <div class="mdui-textfield-error">交易金额不能为空</div>
                         </div>
+                        <input type="hidden" name="buyer_name" value={{$user->name}}>
                         <button data-no-instant type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme mdui-center">提交
                         </button>
                         <br>

@@ -97,6 +97,11 @@ class AdminController extends Controller
             //更新卖家买家的资产状态
         }
 
+        if ($request->confirm === 'false') {
+            DB::table('user_informations')->where('id','=',$request->userInfoId)->update(['money'=> $request->money]);
+
+        }
+
         return redirect('admin/35/userInformations');
     }
 
