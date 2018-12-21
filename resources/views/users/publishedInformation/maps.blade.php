@@ -10,6 +10,12 @@
                     地图信息
                 </div>
 
+                <h3 class="mdui-text-color-theme">霉螺岛</h3>
+                <img src="{{ URL::asset('images/meiluo.jpg') }}" style="width: 50%">
+                <h3 class="mdui-text-color-theme">迪诗佩卢岛</h3>
+                <img src="{{ URL::asset('images/dishi.jpg') }}" style="width: 50%">
+                
+
 
                 <table class="mdui-table">
                     <thead>
