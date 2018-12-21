@@ -74,4 +74,31 @@ class AdminController extends Controller
         return redirect('admin/35/maps');
     }
 
+    public function userInfos() {
+        $userId = Auth::id();
+        if ($userId != 666) {
+            return redirect('/home');
+        }
+
+        $userInfos = DB::table('user_informations')->get();
+        return view('admin.userInformations')->with('userInfos',$userInfos);
+    }
+
+    public function changeUserInfoStatus(Request $request) {
+
+        $userId = Auth::id();
+        if ($userId != 666) {
+            return redirect('/home');
+        }
+
+
+
+        if ($request->confirm === 'true') {
+            DB::table('user_informations')->where('id','=',$request->userInfoId)->update(['description'=> $request->description]);
+            //更新卖家买家的资产状态
+        }
+
+        return redirect('admin/35/userInformations');
+    }
+
 }

@@ -38,3 +38,6 @@ Route::post('/admin/35/resources','AdminController@changeResourcesStatus')->name
 
 Route::get('/admin/35/maps','AdminController@maps');
 Route::post('/admin/35/maps','AdminController@changeMapStatus')->name('changeMapStatus');
+
+Route::get('/admin/35/userInformations','AdminController@userInfos');
+Route::post('/admin/35/userInformations','AdminController@changeUserInfoStatus')->name('changeUserInfoStatus');

@@ -34,6 +34,7 @@ class HomeController extends Controller
 
                 $userInfo = new UserInformation();
                 $userInfo->user_id = $user->id;
+                $userInfo->user_name = $user->name;
                 $userInfo->description = '';
                 $userInfo->money = '100';
                 $userInfo->save();

@@ -16,6 +16,7 @@ class CreateUserInformationsTable extends Migration
         Schema::create('user_informations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->string('user_name')->default('?');
             $table->longText('description');
             $table->integer('money');
             $table->timestamps();
