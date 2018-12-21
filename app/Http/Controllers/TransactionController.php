@@ -21,31 +21,54 @@ class TransactionController extends Controller
 
 
 
-    public function changeTransactionStatus(Request $request) {
-        $user = Auth::user();
-        $currentTransaction = DB::table('transactions')->where('id','=',$request->transactionId)->first();
+    public function handleTransaction(Request $request) {
+        if ($request->form_type == 0 ) {
+            $user = Auth::user();
 
-        if ($currentTransaction->status != 0) {
-            return view('errors.custom')->with('messeage','订单已完成或取消');
-        }
 
-        if ($request->confirm === 'true') {
-            DB::table('transactions')->where('id','=',$request->transactionId)->update(['status'=> 1]);
-            //更新卖家买家的资产状态
-            DB::table('user_informations')
-                ->where('user_id','=',$currentTransaction->seller_id)
-                ->increment('money',$currentTransaction->money);
+            $currentTransaction = DB::table('transactions')->where('id', '=', $request->transactionId)->first();
 
-            DB::table('user_informations')
-                ->where('user_id','=',$currentTransaction->buyer_id)
-                ->decrement('money',$currentTransaction->money);
+
+            if ($currentTransaction->status != 0) {
+                return view('errors.custom')->with('messeage', '订单已完成或取消');
+            }
+
+            if ($request->confirm === 'true') {
+                DB::table('transactions')->where('id', '=', $request->transactionId)->update(['status' => 1]);
+                //更新卖家买家的资产状态
+                DB::table('user_informations')
+                    ->where('user_id', '=', $currentTransaction->seller_id)
+                    ->increment('money', $currentTransaction->money);
+
+                DB::table('user_informations')
+                    ->where('user_id', '=', $currentTransaction->buyer_id)
+                    ->decrement('money', $currentTransaction->money);
+            } else {
+                DB::table('transactions')->where('id', '=', $request->transactionId)->update(['status' => -1]);
+            }
+
+            return redirect('users/transactions/index');
+
         } else {
-            DB::table('transactions')->where('id','=',$request->transactionId)->update(['status'=> -1]);
+            $seller = DB::table('users') -> where('name',request('seller_name')) -> get() -> first();
+            $buyer = DB::table('users')->where('name',request('buyer_name')) -> get() -> first();
+
+            if (empty($seller)) {
+                return view('errors.custom')->with('messeage','无此卖家');
+            }
+
+            $transaction = new Transaction();
+            $transaction->seller_id = $seller->id;
+            $transaction->seller_name = request('seller_name');
+            $transaction->buyer_id = $buyer->id;
+            $transaction->buyer_name = request('buyer_name');
+            $transaction->description = request('description');
+            $transaction->money = request('money');
+            $transaction->status = 0;
+            $transaction->save();
+
+            return redirect('users/transactions/index');
         }
-
-
-
-        return redirect('users/transactions/index');
 
     }
 

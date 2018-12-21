@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -27,7 +27,7 @@
                                             <input name="owner_name" value="{{$map->owner_name}}">
                                             <button type="submit" name="confirm" value="true"
                                                     class="mdui-btn mdui-btn-icon mdui-color-green mdui-ripple">
-                                                <i class="mdui-icon material-icons">更改</i>
+                                                <i class="mdui-icon material-icons">create</i>
                                             </button>
                                     </td>
                                 </tr>

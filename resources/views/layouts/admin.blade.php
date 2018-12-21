@@ -93,51 +93,32 @@
             <button class="navi mdui-btn mdui-color-theme-accent"
                     style="width: 150px !important;height: 100% !important;"
                     mdui-menu="{target: '#user'}">
-                个人
+                这是一个菜单
                 <i class="mdui-icon material-icons">&#xe7fd;</i>
             </button>
             <ul class="mdui-menu mdui-menu-cascade" id="user">
                 <li class="mdui-menu-item">
-                    <a href="/users/index" class="mdui-ripple">
-                        个人信息
-                    </a>
-                </li>
-            </ul>
-
-            <div></div>
-            <button class="navi mdui-btn mdui-color-theme-accent"
-                    style="width: 150px !important;height: 100% !important;"
-                    mdui-menu="{target: '#information'}">
-                资讯
-                <i class="mdui-icon material-icons">&#xe048;</i>
-            </button>
-            <ul class="mdui-menu mdui-menu-cascade" id="information">
-                <li class="mdui-menu-item">
-                    <a href="/users/resources" class="mdui-ripple">
-                        资源价目
+                    <a href="/admin/35/userInformations" class="mdui-ripple">
+                        选手信息
                     </a>
                 </li>
                 <li class="mdui-menu-item">
-                    <a href="/users/maps" class="mdui-ripple">
+                    <a href="/admin/35/maps" class="mdui-ripple">
                         地图信息
                     </a>
                 </li>
-            </ul>
-
-            <div></div>
-            <button class="navi mdui-btn mdui-color-theme-accent"
-                    style="width: 150px !important;height: 100% !important;"
-                    mdui-menu="{target: '#transaction'}">
-                交易
-                <i class="mdui-icon material-icons">&#xe854;</i>
-            </button>
-            <ul class="mdui-menu mdui-menu-cascade" id="transaction">
                 <li class="mdui-menu-item">
-                    <a href="/users/transactions/index" class="mdui-ripple">
-                        交易列表
+                    <a href="/admin/35/resources" class="mdui-ripple">
+                        价目信息
+                    </a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a href="/admin/35/announcements" class="mdui-ripple">
+                        公告记录
                     </a>
                 </li>
             </ul>
+
 
             <div id="effect"></div>
 

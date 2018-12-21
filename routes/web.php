@@ -28,9 +28,8 @@ Route::get('/users/maps','UserController@maps');
 
 
 Route::get('/users/transactions/index','TransactionController@index');
-Route::post('/users/transactions/index','TransactionController@changeTransactionStatus')->name('changeTransactionStatus');
-Route::get('/users/transactions/newTransaction','TransactionController@enterNewTransaction');
-Route::post('/users/transactions/newTransaction', 'TransactionController@newTrans')->name('newTrans');
+Route::post('/users/transactions/index','TransactionController@handleTransaction')->name('handleTrans');
+//Route::post('/users/transactions/newTransaction', 'TransactionController@handleTransaction')->name('newTrans');
 
 
 Route::get('/admin/35/resources','AdminController@resources');
@@ -41,3 +40,6 @@ Route::post('/admin/35/maps','AdminController@changeMapStatus')->name('changeMap
 
 Route::get('/admin/35/userInformations','AdminController@userInfos');
 Route::post('/admin/35/userInformations','AdminController@changeUserInfoStatus')->name('changeUserInfoStatus');
+
+Route::get('/admin/35/announcements','AdminController@announcements');
+Route::post('/admin/35/announcements','AdminController@changeAnnouncementsStatus')->name('changeAnnouncementsStatus');

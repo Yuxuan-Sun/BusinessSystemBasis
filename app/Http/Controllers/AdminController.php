@@ -92,13 +92,42 @@ class AdminController extends Controller
         }
 
 
-
         if ($request->confirm === 'true') {
             DB::table('user_informations')->where('id','=',$request->userInfoId)->update(['description'=> $request->description]);
             //更新卖家买家的资产状态
         }
 
         return redirect('admin/35/userInformations');
+    }
+
+    public function announcements() {
+        $userId = Auth::id();
+        if ($userId != 666) {
+            return redirect('/home');
+        }
+
+        $resources = DB::table('resources')->get();
+        return view('admin.announcement')->with('resources',$resources);
+    }
+
+    public function changeAnnouncementsStatus(Request $request) {
+        $userId = Auth::id();
+        if ($userId != 666) {
+            return redirect('/home');
+        }
+
+        $currentResource = DB::table('resources')->where('id','=',$request->resourceId)->first();
+
+        if ($request->resourceId == -1) {
+            DB::table('resources')->increment('1','year');
+        }
+
+        if ($request->resourceId == -2) {
+            DB::table('resources')->update(['announcement'=>$request->announcement]);
+        }
+
+
+        return redirect('admin/35/announcements');
     }
 
 }
