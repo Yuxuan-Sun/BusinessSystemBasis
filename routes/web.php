@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/users/index','UserController@index');
+Route::get('/users/resources','UserController@resources');
+Route::get('/users/maps','UserController@maps');
 
 
 
@@ -29,6 +31,7 @@ Route::get('/users/transactions/index','TransactionController@index');
 Route::post('/users/transactions/index','TransactionController@changeTransactionStatus')->name('changeTransactionStatus');
 Route::get('/users/transactions/newTransaction','TransactionController@enterNewTransaction');
 Route::post('/users/transactions/newTransaction', 'TransactionController@newTrans')->name('newTrans');
+
 
 Route::get('/admin/35/resources','AdminController@resources');
 Route::post('/admin/35/resources','AdminController@changeResourcesStatus')->name('changeResourcesStatus');
