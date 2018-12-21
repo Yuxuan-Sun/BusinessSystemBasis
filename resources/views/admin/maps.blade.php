@@ -32,6 +32,7 @@
                                                     class="mdui-btn mdui-btn-icon mdui-color-green mdui-ripple">
                                                 <i class="mdui-icon material-icons">create</i>
                                             </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
