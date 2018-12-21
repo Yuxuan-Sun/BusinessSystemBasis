@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <link href="https://cdn.bootcss.com/mdui/0.3.0/css/mdui.min.css" rel="stylesheet">
+    <link href="{{ secure_asset('assets/mdi/css/materialdesignicons.min.css') }}" media="all" rel="stylesheet" type="text/css" />
     <script src="https://cdn.bootcss.com/mdui/0.3.0/js/mdui.min.js" data-no-instant></script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script href="utils.js"></script>
