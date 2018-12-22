@@ -124,7 +124,7 @@ class AdminController extends Controller
         $currentResource = DB::table('resources')->where('id','=',$request->resourceId)->first();
 
         if ($request->resourceId == -1) {
-            DB::table('resources')->increment('1','year');
+            DB::table('resources')->increment('year','1');
         }
 
         if ($request->resourceId == -2) {
