@@ -22,8 +22,8 @@ class TransactionController extends Controller
 
 
     public function handleTransaction(Request $request) {
+        $user = Auth::user();
         if ($request->form_type == 0 ) {
-            $user = Auth::user();
 
 
             $currentTransaction = DB::table('transactions')->where('id', '=', $request->transactionId)->first();
@@ -51,7 +51,7 @@ class TransactionController extends Controller
 
         } else {
             $seller = DB::table('users') -> where('name',request('seller_name')) -> get() -> first();
-            $buyer = DB::table('users')->where('name',request('buyer_name')) -> get() -> first();
+            $buyer = DB::table('users')->where('name',$user->name) -> get() -> first();
 
             if (empty($seller)) {
                 return view('errors.custom')->with('messeage','无此卖家');
