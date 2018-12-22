@@ -84,6 +84,10 @@ class TransactionController extends Controller
             return view('errors.custom')->with('messeage','无此卖家');
         }
 
+        if (empty($buyer)) {
+            return view('errors.custom')->with('messeage',request('buyer_name'));
+        }
+
             $transaction = new Transaction();
             $transaction->seller_id = $seller->id;
             $transaction->seller_name = request('seller_name');
