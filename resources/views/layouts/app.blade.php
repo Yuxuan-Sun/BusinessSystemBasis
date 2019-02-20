@@ -85,12 +85,12 @@
 
 <body class="mdui-theme-primary-teal mdui-appbar-with-toolbar">
 <div id="app">
-    <body class="mdui-theme-primary-teal mdui-appbar-with-toolbar">
 
 
     <div class="mdui-appbar mdui-appbar-fixed">
         <div class="mdui-toolbar mdui-color-white mdui-row">
             <div class="mdui-typo-title">Finance Club</div>
+
             <button class="navi mdui-btn mdui-color-theme-accent"
                     style="width: 150px !important;height: 100% !important;"
                     mdui-menu="{target: '#user'}">
@@ -106,6 +106,7 @@
             </ul>
 
             <div></div>
+
             <button class="navi mdui-btn mdui-color-theme-accent"
                     style="width: 150px !important;height: 100% !important;"
                     mdui-menu="{target: '#information'}">
@@ -131,6 +132,7 @@
             </ul>
 
             <div></div>
+
             <button class="navi mdui-btn mdui-color-theme-accent"
                     style="width: 150px !important;height: 100% !important;"
                     mdui-menu="{target: '#transaction'}">
